@@ -1,0 +1,38 @@
+PROBLEM: Return the sum of all the leaf nodes that are right child of their parent of the given binary tree.
+
+        1
+        /  \
+       2    3
+     /  \     \
+    4   (5)    8 
+     \        /  \
+     (2)     6   (7)
+      
+Output : sum = 2 + 5 + 7 = 14
+
+
+SOLUTION:
+
+
+void findRightSum(int &sum, Node *root){
+    if(root){
+        if(root->right!=NULL){
+            if(root->right->left==NULL && root->right->right==NULL){
+                sum+=(root->right->data);
+            }
+        }
+        findRightSum(sum, root->left);
+        findRightSum(sum, root->right);
+        
+    }
+}
+int rightLeafSum(Node* root)
+{
+     int sum=0;
+     findRightSum(sum, root);
+     return sum;
+}
+
+
+
+
