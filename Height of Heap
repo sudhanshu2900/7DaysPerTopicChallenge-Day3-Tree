@@ -1,0 +1,45 @@
+PROBLEM: N = 6
+         arr = {1, 3, 6, 5, 9, 8}
+         
+Output: 2
+
+Explaination: The tree is like the following
+        (1)
+       /   \
+    (3)    (6)
+    / \     /
+  (5) (9) (8)
+  
+  
+  
+SOLUTION:
+
+
+              METHOD 1
+              --------------->
+
+                        int heapHeight(int N, int arr[]){
+
+                                int NoOfLevels=0, rem=N;
+                                while(rem>0){
+                                    rem=rem-pow(2,NoOfLevels);
+                                    NoOfLevels++;
+                                }
+                                return NoOfLevels-1;
+                            }
+
+           ________________________________________________________________________________
+
+              METHOD 2 
+              --------------->
+
+
+                        int heapHeight(int N, int arr[])
+                        {        
+                                return log2(N);
+                        }
+
+
+
+
+
